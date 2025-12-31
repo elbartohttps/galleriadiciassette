@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFO | Galleria 17</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- STILI CONDIVISI --- */
+        :root {
+            --bg-rosa-logo: #F4D8E4; 
+            --marrone-17: #674F35;    
+            --nero-pieno: #000000;
+            --bianco: #ffffff;
+            --ciano-17: #33E1ED; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bianco) !important;
+            font-family: 'Archivo Black', sans-serif;
+            color: var(--nero-pieno);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { text-align: center; padding: 60px 20px 40px 20px; }
+        .logo-container img { max-width: 200px; height: auto; margin-bottom: 10px; }
+
+        .tagline {
+            font-size: 1.1rem; text-transform: uppercase; display: inline-block;
+            background-color: var(--nero-pieno); color: var(--bg-rosa-logo);
+            padding: 6px 15px; transform: rotate(-1.5deg); margin-bottom: 40px;
+        }
+
+        nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        
+        nav a {
+            font-family: 'Archivo Black', sans-serif; text-decoration: none;
+            color: var(--nero-pieno); background: transparent;
+            border: 3px solid var(--nero-pieno); padding: 10px 25px;
+            font-size: 1.2rem; 
+            transition: all 0.2s ease; position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--bg-rosa-logo); color: var(--nero-pieno);
+            transform: translate(-3px, -3px); box-shadow: 6px 6px 0px var(--nero-pieno);
+        }
+
+        /* --- STILI SPECIFICI PAGINA INFO <a href="mailto:tuaemail@esempio.com" class="email-link">scrivimi@galleria17.com</a>--- */
+        .info-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 20px 80px 20px;
+            flex: 1; 
+        }
+
+        .info-card {
+            background: var(--bianco);
+            border: 3px solid var(--marrone-17);
+            box-shadow: 12px 12px 0px var(--marrone-17);
+            padding: 40px;
+        }
+
+        .info-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0px var(--bg-rosa-logo);
+        }
+
+        .info-text {
+            
+            font-size: 1.0rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #3d3c40;
+        }
+
+        .highlight-box {
+            background: var(--nero-pieno);
+            color: var(--bg-rosa-logo);
+            padding: 20px;
+            margin: 30px 0;
+            transform: rotate(1deg);
+            width: fit-content;
+        }
+
+        .highlight-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-section {
+            margin-top: 40px;
+            border-top: 2px dashed var(--marrone-17);
+            padding-top: 20px;
+        }
+
+        .email-link {
+            font-size: 1.2rem;
+            color: var(--nero-pieno);
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-decoration-color: var(--bg-rosa-logo);
+        }
+        
+        .email-link:hover { background-color: var(--bg-rosa-logo); }
+
+        footer {
+            text-align: center; padding: 60px 20px;
+            border-top: 4px solid var(--marrone-17);
+            background: rgba(0,0,0,0.03); margin-top: auto;
+        }
+        .social-links a {
+            display: inline-block; background: var(--marrone-17);
+            color: var(--bg-rosa-logo); text-decoration: none;
+            padding: 10px 20px; margin-bottom: 20px; transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--nero-pieno); color: var(--bg-rosa-logo); }
+        .copyright { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: center; }
+            nav a { width: 80%; text-align: center; }
+            .info-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logoG17_2.png" alt="Galleria 17 Logo">
+        </div>
+        <div class="tagline">Creative Digital Space</div>
+        
+        <nav>
+            <a href="index.html">Archivio</a>
+            <a href="https://galleria-17.redbubble.com" target="_blank">Shop</a>
+            <a href="#" class="active">Info</a>
+        </nav>
+    </header>
+
+    <main class="info-container">
+        <div class="info-card">
+            
+            <h1 class="info-title">Behind the scenes</h1>
+            
+            <div class="info-text">
+                <p>ITA</p>
+                <br>
+                <br>
+                <p>Questa galleria raccoglie una selezione di lavori digitali nati come ricerca personale di uno spazio aggiuntivo alla classica quotidianità.</p>
+                <br>
+                <p>Le opere non rispondono a un tema fisso né a una narrazione esplicita. Sono frammenti e osservazioni, realizzate in formato digitale e prodotte in edizione limitata.</p>
+                <br>
+                <p> La galleria non segue logiche di produzione continua.
+                    I lavori vengono pubblicati quando conclusi, senza calendario.</p>
+                <br>
+                <br>
+                <p>ENG</p>
+                <br>
+                <p>This gallery presents a selection of digital works born as a personal exploration of an additional space beyond everyday life.</p>
+                <br>
+                <p>The works do not follow a fixed theme nor an explicit narrative. They are fragments and observations, created in digital format and produced in limited editions.</p>
+                <br>
+                <p>The gallery does not follow a continuous production logic.
+                The works are published when completed, without a schedule.</p>
+                
+                <div class="contact-section">
+                    <p class="info-text">Hai un progetto in mente o vuoi semplicemente dire la tua?</p>
+                    <p class="info-text">Seguici :)</p>
+                </div>
+                <div class="contact-section">
+                    <p class="info-text">Do you have a project in mind, or would you simply like to share your thoughts?</p>
+                    <p class="info-text">Follow us :)</p>
+                </div> 
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/galleriadiciassette" target="_blank">INSTAGRAM</a>
+        </div>
+        <p class="copyright">Galleria Diciassette &copy; 2025 — Creative Digital Space</p>
+    </footer>
+
+</body>
+</html>
