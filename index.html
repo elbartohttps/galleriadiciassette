@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bianco) !important;
+            background-color: var(--bianco);
             font-family: 'Archivo Black', sans-serif;
             color: var(--nero-pieno);
             min-height: 100vh;
@@ -57,10 +57,9 @@
             margin-bottom: 10px;
         }
 
-        /* TAGLINE STILE ETICHETTA */
+        /* TAGLINE */
         .tagline {
             font-size: 1.1rem;
-            
             display: inline-block;
             background-color: var(--nero-pieno);
             color: var(--bg-rosa-logo);
@@ -69,7 +68,7 @@
             margin-bottom: 40px;
         }
 
-        /* NAVIGAZIONE STILE FESTIVAL */
+        /* NAV */
         nav {
             display: flex;
             justify-content: center;
@@ -78,27 +77,21 @@
         }
 
         nav a {
-            font-family: 'Archivo Black', sans-serif;
             text-decoration: none;
             color: var(--nero-pieno);
             background: transparent;
             border: 3px solid var(--nero-pieno);
             padding: 10px 25px;
             font-size: 1.2rem;
-            
             transition: all 0.2s ease;
-            position: relative;
         }
 
-        /* Effetto hover: diventa pieno e si sposta come un tasto */
         nav a:hover {
-            background: var(--ciano-17);
-            color: var(--nero-pieno);
             transform: translate(-3px, -3px);
             box-shadow: 6px 6px 0px var(--nero-pieno);
         }
 
-        /* GRIGLIA OPERE */
+        /* GALLERY */
         .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -117,7 +110,6 @@
         }
 
         .art-card:hover {
-            box-shadow: 15px 15px 0px var(--ciano-17);
             transform: scale(1.02);
         }
 
@@ -130,12 +122,10 @@
 
         .art-details {
             margin-top: 15px;
-            text-align: left;
         }
 
         .art-title {
             font-size: 1.2rem;
-            
             margin-bottom: 2px;
         }
 
@@ -166,72 +156,169 @@
 
         .social-links a:hover {
             background: var(--nero-pieno);
-            color: var(--bg-rosa-logo);
         }
 
         .copyright {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.3rem;
             letter-spacing: 2px;
-            
         }
 
-        /* Mobile */
+        /* MOBILE */
         @media (max-width: 600px) {
             nav { flex-direction: column; align-items: center; }
             nav a { width: 80%; text-align: center; }
+            header::before { left: 20px; }
         }
+        /* LIGHTBOX */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            z-index: 9999;
+            cursor: pointer;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+        }
+
+        /* TITOLO OPERA */
+        #lightbox-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.75);
+            text-transform: lowercase;
+        }
+        /* BLOCCO SELEZIONE E DRAG IMMAGINI */
+        img {
+            user-drag: none;
+            -webkit-user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            pointer-events: auto;
+        }
+
+
     </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="logoG17_2.png" alt="Galleria 17 Logo">
+<header>
+    <div class="logo-container">
+        <img src="logoG17_2.png" alt="Galleria 17 Logo">
+    </div>
+
+    <div class="tagline">Creative Digital Space</div>
+
+    <nav>
+        <a href="#">Archivio</a>
+        <a href="https://galleria-17.redbubble.com" target="_blank">Shop</a>
+        <a href="info.html">Info</a>
+    </nav>
+</header>
+
+<main class="gallery-container">
+    <div class="art-card">
+        <img src="quiet space.TIF" alt="quiet space" draggable="false">
+        <div class="art-details">
+            <div class="art-title">quiet space</div>
+            <div class="art-meta">Digital Illustration</div>
         </div>
-        <div class="tagline">Creative Digital Space</div>
+    </div>
+
+    <div class="art-card">
+        <img src="45 minutes before dinner.TIF" alt="45 minutes before dinner" draggable="false">
+        <div class="art-details">
+            <div class="art-title">45 minutes before dinner</div>
+            <div class="art-meta">Digital Illustration</div>
+        </div>
+    </div>
+
+    <div class="art-card">
+        <img src="theidentity 2.PNG" alt="the identity" draggable="false">
+        <div class="art-details">
+            <div class="art-title">the identity</div>
+            <div class="art-meta">Digital Illustration</div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="social-links">
+        <a href="https://instagram.com/galleriadiciassette" target="_blank">INSTAGRAM</a>
+    </div>
+    <p class="copyright">
+        Galleria Diciassette &copy; 2025 — Creative Digital Space
+    </p>
+</footer>
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-title"></div>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.art-card img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+    
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxTitle.textContent = img.alt;
+                lightbox.classList.add('active');
+            });
+        });
+    
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                lightboxTitle.textContent = '';
+            }, 300);
+        }
+    
+        lightbox.addEventListener('click', closeLightbox);
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
         
-        <nav>
-            <a href="#">Archive</a>
-            <a href="https://galleria-17.redbubble.com" target="_blank">Shop</a>
-            <a href="info.html">Info</a>
-        </nav>
-    </header>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
 
-    <main class="gallery-container">
-        
-        <div class="art-card">
-            <img src="quiet space.TIF" alt="Opera 1">
-            <div class="art-details">
-                <div class="art-title">quiet space</div>
-                <div class="art-meta">Digital Illustration</div>
-            </div>
-        </div>
-
-        <div class="art-card">
-            <img src="45 minutes before dinner.TIF" alt="Opera 2">
-            <div class="art-details">
-                <div class="art-title">45 minutes before dinner</div>
-                <div class="art-meta">Digital Illustration</div>
-            </div>
-        </div>
-
-        <div class="art-card">
-            <img src="theidentity 2.PNG" alt="Opera 3">
-            <div class="art-details">
-                <div class="art-title">the identity</div>
-                <div class="art-meta">Digital Illustration</div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer>
-        <div class="social-links">
-            <a href="https://instagram.com/galleriadiciassette" target="_blank">INSTAGRAM</a>
-        </div>
-        <p class="copyright">Galleria Diciassette &copy; 2025 — Creative Digital Space</p>
-    </footer>
-
+    </script>
+    
+    
 </body>
 </html>
