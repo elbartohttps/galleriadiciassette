@@ -34,16 +34,18 @@
         }
 
         /* STRISCIA ORIZZONTALE ROSA */
-        header::before {
+        hheader::before {
             content: "";
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 550px;                 /* altezza della striscia */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;          /* viewport width reale */
+            height: 120px;
             background-color: var(--bg-rosa-logo);
             z-index: 0;
         }
+        
 
 
         header * {
@@ -226,7 +228,7 @@
 </head>
 
 <body>
-
+overflow-x: hidden;
 <header>
     <div class="logo-container">
         <img src="logoG17_2.png" alt="Galleria 17 Logo">
